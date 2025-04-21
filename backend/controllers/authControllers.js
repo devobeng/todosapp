@@ -18,7 +18,10 @@ exports.register = async (req, res) => {
     const user = await User.create({ email, password: hashedPassword });
 
     res.status(201).json({ user });
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error creating user:", error);
+    res.status(500).json({ message: "Server error" });
+  }
 };
 
 exports.login = async (req, res) => {
@@ -44,5 +47,8 @@ exports.login = async (req, res) => {
       email: user.email,
       token: token,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    res.status(500).json({ message: "Server error" });
+  }
 };
