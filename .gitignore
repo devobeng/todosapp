@@ -1,57 +1,34 @@
-# =======================
-# Node.js (Backend)
-/backend/node_modules/
-backend/package-lock.json
-/backend/.env
-/backend/.env.local
-/backend/.log
-/backend/logs
-/backend/dist/
-backend/debug.log
+# Dependencies
+node_modules/
 
-# PM2/Logs
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage
-/backend/coverage/
-
-# =======================
-# React (Frontend)
-/frontend/node_modules/
-/frontend/.env
-/frontend/.env.local
-/frontend/.env.development
-/frontend/.env.production
-/frontend/.env.test
-/frontend/build/
-frontend/coverage/
-frontend/jest-test-results.json
-/frontend/.eslintcache
-/frontend/.parcel-cache
-
-# Vite/CRA/Next.js builds
-/frontend/dist/
-/frontend/.next/
-/frontend/.turbo/
-
-# =======================
-# General
-*.log
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-pnpm-lock.yaml
-yarn.lock
 
-# OS
+# Build files
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# React specific
+*.cache/
+public/static/
+public/*.map
+
+# Testing
+coverage/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Miscellaneous
 .DS_Store
 Thumbs.db
-
-# Editors/IDEs
-.vscode/
-.idea/
-*.sublime-workspace
