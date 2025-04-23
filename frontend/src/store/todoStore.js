@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import api from "../api/axios";
 import { TodoSchema } from "../utils/schemas";
 

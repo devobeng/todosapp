@@ -1,9 +1,10 @@
 import "./App.css";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
-    <div className="bg-yellow-400">
-      <h1>Hello </h1>
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
     </div>
   );
 }
