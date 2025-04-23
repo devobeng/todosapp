@@ -34,8 +34,8 @@ The backend is a simple Express.js server that uses MongoDB as the database. It 
 
 - `GET /todo`: Get all todos for the authenticated user
 - `POST /todo`: Create a new todo for the authenticated user
-- `PATCH /todo/:id`: Update a todo for the authenticated user
-- `DELETE /todo/:id`: Delete a todo for the authenticated user
+- `PATCH /todo/:id/edit`: Update a todo for the authenticated user
+- `DELETE /todo/:id/delete`: Delete a todo for the authenticated user
 
 ### Frontend
 

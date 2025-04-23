@@ -48,7 +48,7 @@ export const useTodoStore = create((set) => ({
     try {
       const { token } = useAuthStore.getState();
       const parsedTodo = TodoSchema.parse({ ...updates });
-      const res = await api.patch(`/todo/${id}`, parsedTodo, {
+      const res = await api.patch(`/todo/${id}/edit`, parsedTodo, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -68,7 +68,7 @@ export const useTodoStore = create((set) => ({
   deleteTodo: async (id) => {
     try {
       const { token } = useAuthStore.getState();
-      await api.delete(`/todo/${id}`, {
+      await api.delete(`/todo/${id}/delete`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

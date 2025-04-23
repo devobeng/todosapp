@@ -19,7 +19,7 @@ router.post(
   todoController.createTodos
 );
 router.patch(
-  "/:id",
+  "/:id/edit",
   verifyToken,
   [
     body("title")
@@ -35,6 +35,6 @@ router.patch(
   todoController.updateTodo
 );
 
-router.delete("/:id", verifyToken, todoController.deleteTodo);
+router.delete("/:id/delete", verifyToken, todoController.deleteTodo);
 
 module.exports = router;
