@@ -2,7 +2,9 @@ import { create } from "zustand";
 import api from "../api/axios";
 export const useAuthStore = create((set) => ({
   token: localStorage.getItem("token") || null,
+
   loggedIn: Boolean(localStorage.getItem("token")),
+
   login: async (email, password) => {
     const res = await api.post("/auth/login", { email, password });
     localStorage.setItem("token", res.data.token);
