@@ -48,6 +48,13 @@ export const useTodoStore = create((set) => ({
     try {
       const { token } = useAuthStore.getState();
       const parsedTodo = TodoSchema.parse({ ...updates });
+      //const previousTodos = get().todos;
+      set((state) => ({
+        todos: state.todos.map((t) =>
+          t._id === id ? { ...t, ...parsedTodo } : t
+        ),
+      }));
+
       const res = await api.patch(`/todo/${id}/edit`, parsedTodo, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -58,10 +65,10 @@ export const useTodoStore = create((set) => ({
           todos: state.todos.map((t) => (t.id === id ? res.data : t)),
         }));
       }
+
       toast.success("Todo updated successfully!");
     } catch (error) {
       console.error("Error parsing todo:", error);
-      return;
     }
   },
 
