@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Login from "./pages/Login";
@@ -23,6 +24,7 @@ function App() {
           element={<Navigate to={loggedIn ? "/dashboard" : "/login"} replace />}
         />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

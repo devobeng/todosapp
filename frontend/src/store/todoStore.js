@@ -2,6 +2,7 @@ import { create } from "zustand";
 import api from "../api/axios";
 import { TodoSchema } from "../utils/schemas";
 import { useAuthStore } from "./authStore";
+import { toast } from "react-toastify";
 
 export const useTodoStore = create((set) => ({
   todos: [],
@@ -57,6 +58,7 @@ export const useTodoStore = create((set) => ({
           todos: state.todos.map((t) => (t.id === id ? res.data : t)),
         }));
       }
+      toast.success("Todo updated successfully!");
     } catch (error) {
       console.error("Error parsing todo:", error);
       return;

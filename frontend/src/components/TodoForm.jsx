@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TodoSchema } from "../utils/schemas";
 import { useTodoStore } from "../store/todoStore";
+import { toast } from "react-toastify";
 
 const TodoForm = () => {
   const { currentTodo, addTodo, updateTodo, closeModal, clearCurrentTodo } =
@@ -29,6 +30,7 @@ const TodoForm = () => {
         await updateTodo(currentTodo._id, data);
       } else {
         await addTodo(data);
+        toast.success("Todo added successfully!");
       }
       reset();
       clearCurrentTodo();
