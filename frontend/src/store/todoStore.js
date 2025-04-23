@@ -68,12 +68,13 @@ export const useTodoStore = create((set) => ({
   deleteTodo: async (id) => {
     try {
       const { token } = useAuthStore.getState();
-      await api.delete(`/todos/${id}`, {
+      await api.delete(`/todo/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      set((state) => ({ todos: state.todos.filter((t) => t.id !== id) }));
+      set((state) => ({ todos: state.todos.filter((t) => t._id !== id) }));
+      toast.success("Todo deleted successfully!");
     } catch (error) {
       console.error("Error deleting todo:", error);
     }
