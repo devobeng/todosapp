@@ -4,8 +4,7 @@ import { useAuthStore } from "../store/authStore";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { login, logout } = useAuthStore();
-  console.log(login);
+  const { loggedIn, logout } = useAuthStore();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -22,7 +21,7 @@ const Navigation = () => {
 
           {/* Desktop Menu (hidden on mobile) */}
           <div className="hidden md:flex items-center space-x-4">
-            {login ? (
+            {loggedIn ? (
               <>
                 <Link
                   to="/dashboard"
@@ -40,13 +39,13 @@ const Navigation = () => {
             ) : (
               <>
                 <Link
-                  to="/auth?type=login"
+                  to="/login"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
                 >
                   Login
                 </Link>
                 <Link
-                  to="/auth?type=register"
+                  to="/register"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md"
                 >
                   Register
@@ -105,7 +104,7 @@ const Navigation = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute w-full bg-gray-800 z-10">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {login ? (
+            {loggedIn ? (
               <>
                 <Link
                   to="/dashboard"
